@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Modern Innovations 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --bg-body: #050015;
+      --bg-panel: radial-gradient(circle at 20% 0%, #3b1b7d 0, #050015 48%, #020008 100%);
+      --bg-section: #050015;
+      --accent: #8c52ff;
+      --accent-soft: #4c1d95;
+      --accent-strong: #c084fc;
+      --text-main: #ffffff;
+      --text-muted: #a1a1b5;
+      --radius-main: 32px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 0 0, #6d28d9 0, transparent 45%),
+        radial-gradient(circle at 100% 100%, #4c1d95 0, transparent 55%),
+        var(--bg-body);
+      color: var(--text-main);
+      font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    /* layout container */
+    .shell {
+      margin: 0 auto;
+      padding: 24px 22px 72px;
+    }
+
+    /* NAVBAR */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      margin-bottom: 18px;
+    }
+
+    .nav-inner {
+      border-radius: 999px;
+      background: rgba(8, 8, 20, 0.96);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* LOGO SLOT – replace the img src with your logo */
+    .logo-slot {
+      width: 220px;
+      height: 32px;
+      border-radius: 0;
+      overflow: hidden;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .logo-slot {
+        width: 160px;
+        height: 23px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .logo-slot {
+        width: 120px;
+        height: 17px;
+      }
+    }
+
+    .brand-name {
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 0.9rem;
+    }
+
+    .nav-link {
+      color: #d4d4dd;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #ffffff;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-tag {
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: #111322;
+      font-size: 0.72rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c7c8e8;
+    }
+
+    .nav-tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #4ade80;
+      box-shadow: 0 0 10px rgba(74, 222, 128, 0.8);
+    }
+
+    .nav-cta {
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: transparent;
+      color: #e5e7eb;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+    }
+
+    .panel {
+      border-radius: 48px;
+      background: var(--bg-panel);
+      padding: 30px 50px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1.5px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, #8b5cf6, #e879f9, #22d3ee);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0.85;
+    }
+
+    /* Generic section padding inside panel */
+    .section {
+      padding: 96px 12px 72px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* HERO / HOME */
+    #home {
+      min-height: calc(100vh - 140px); /* full-screen feel */
+    }
+
+    .hero-content {
+      width: 100%;
+    }
+
+    .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+      margin-bottom: 14px;
+    }
+
+    .eyebrow span {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      margin-left: 6px;
+      font-size: 0.7rem;
+    }
+
+    .hero-heading {
+      font-family: "Playfair Display", serif;
+      font-size: 2.6rem;
+      line-height: 1.12;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+
+    .hero-heading span { display: block; }
+
+    .hero-gradient-word {
+      background: linear-gradient(120deg, #e0f2fe, #a855ff, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      margin-top: 18px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .event-meta {
+      margin-top: 34px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: #e5e7eb;
+    }
+
+    .hero-cards {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .hero-card {
+      border-radius: 16px;
+      padding: 20px;
+      background: radial-gradient(circle at 0 0, rgba(140, 82, 255, 0.2), transparent 60%), rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hero-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border: 2px solid #8c52ff;
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #e5e7eb;
+      margin-bottom: 5px;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .meta-label {
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+      color: #9ca3af;
+      min-width: 70px;
+    }
+
+    .meta-pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.8rem;
+    }
+
+    /* Center hero card */
+    .stage-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    .stage-card {
+      width: 500px;
+      height: 500px;
+      border-radius: 34px;
+      padding: 24px 22px 22px;
+      background: radial-gradient(circle at 20% 0%, #a855ff 0, #4c1d95 40%, #020014 90%);
+      box-shadow:
+        0 26px 60px rgba(0, 0, 0, 0.95),
+        0 0 40px rgba(129, 140, 248, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stage-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(244, 244, 245, 0.1);
+      opacity: 0.8;
+    }
+
+    .stage-badge {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(191, 219, 254, 0.6);
+    }
+
+    .stage-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
+    }
+
+    .stage-title {
+      margin-top: 26px;
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      line-height: 1.2;
+      position: relative;
+    }
+
+    .stage-title span { display: block; }
+
+    .stage-divider {
+      margin: 18px 0 14px;
+      height: 1px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(244, 244, 245, 0.9), transparent);
+      opacity: 0.9;
+    }
+
+    .stage-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      font-size: 0.78rem;
+    }
+
+    .stage-chip {
+      border-radius: 14px;
+      padding: 8px 9px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.65);
+    }
+
+    .stage-chip-label {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.65rem;
+      color: #d1d5db;
+      margin-bottom: 4px;
+    }
+
+    .stage-chip-value {
+      font-weight: 500;
+    }
+
+    /* SPEAKERS SECTION */
+    #speakers .section-header,
+    #schedule .section-header {
+      margin-bottom: 26px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #a1a1b5;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.04em;
+    }
+
+    .section-description {
+      margin-top: 8px;
+      max-width: 460px;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .speaker-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 26px;
+    }
+
+    .speaker-card {
+      border-radius: 24px;
+      padding: 18px 18px 20px;
+      background: radial-gradient(circle at 0 0, rgba(168, 85, 247, 0.35), transparent 55%),
+                  #050015;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .speaker-photo {
+      width: 100%;
+      padding-top: 68%;
+      border-radius: 18px;
+      overflow: hidden;
+      background: radial-gradient(circle at 20% 20%, #8c52ff, #1f2937);
+      position: relative;
+    }
+
+    .speaker-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      color: rgba(243, 244, 246, 0.85);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* If you add <img> inside .speaker-photo, it will show instead */
+    .speaker-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .speaker-name {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .speaker-role {
+      font-size: 0.82rem;
+      color: #a5b4fc;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .speaker-topic {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* SCHEDULE SECTION */
+    .schedule-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .timeline {
+      border-radius: 24px;
+      padding: 20px 20px 10px;
+      background: radial-gradient(circle at 0 0, rgba(140, 82, 255, 0.2), transparent 60%), rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .timeline-day {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 14px 0;
+      border-bottom: 1px dashed rgba(75, 85, 99, 0.8);
+    }
+
+    .day-sections {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .section-card {
+      border-radius: 16px;
+      padding: 16px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .timeline-day:last-child {
+      border-bottom: none;
+    }
+
+    .day-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #a5b4fc;
+      padding-top: 2px;
+    }
+
+    .day-detail-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .day-detail-meta {
+      font-size: 0.82rem;
+      color: #e5e7eb;
+      margin-top: 2px;
+    }
+
+    .day-detail-meta span {
+      opacity: 0.8;
+    }
+
+    .day-detail-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    .schedule-side {
+      border-radius: 24px;
+      padding: 24px 24px 26px;
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.35), transparent 70%),
+                  linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(59, 130, 246, 0.1)),
+                  #030712;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .schedule-side h4 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #a1a1b5;
+    }
+
+    .schedule-side p span {
+      display: block;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .schedule-tagline {
+      margin-top: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      font-size: 0.9rem;
+      color: #a1a1b5;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .footer-section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .footer-section h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #e5e7eb;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .footer-section p {
+      margin: 0;
+      line-height: 1.7;
+      font-size: 0.85rem;
+    }
+
+    .footer-section a {
+      color: #c4b5fd;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      font-size: 0.85rem;
+    }
+
+    .footer-section a:hover {
+      color: #a855ff;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.8);
+      color: #e5e7eb;
+      font-size: 0.8rem;
+      font-family: inherit;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #a1a1b5;
+    }
+
+    .contact-form button {
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: none;
+      background: linear-gradient(115deg, #a855ff, #6366f1);
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .contact-form button:hover {
+      transform: translateY(-1px);
+    }
+
+    .floating-help-bot {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(115deg, #8c52ff, #6366f1);
+      border: none;
+      color: #ffffff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .floating-help-bot:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(168, 85, 247, 0.4);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid rgba(148, 163, 184, 0.2);
+      font-size: 0.85rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: #c4b5fd;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    /* Chatbot Modal */
+    .chatbot-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 1000;
+    }
+
+    .chatbot-window {
+      position: absolute;
+      bottom: 80px;
+      right: 20px;
+      background: #0f172a;
+      border-radius: 16px;
+      padding: 24px;
+      width: 350px;
+      max-height: 60vh;
+      overflow-y: auto;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+    }
+
+    .chatbot-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .chatbot-header h3 {
+      color: #e5e7eb;
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    .chatbot-close {
+      background: none;
+      border: none;
+      color: #a1a1b5;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chatbot-close:hover {
+      color: #ffffff;
+    }
+
+    .chatbot-messages {
+      margin-bottom: 16px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .chatbot-message {
+      margin-bottom: 12px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .chatbot-message.bot {
+      background: rgba(168, 85, 247, 0.2);
+      color: #e5e7eb;
+      align-self: flex-start;
+    }
+
+    .chatbot-message.user {
+      background: rgba(99, 102, 241, 0.2);
+      color: #e5e7eb;
+      align-self: flex-end;
+    }
+
+    .chatbot-questions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .chatbot-question {
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: #c4b5fd;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: background 0.2s ease;
+    }
+
+    .chatbot-question:hover {
+      background: rgba(168, 85, 247, 0.2);
+    }
+
+    /* HAMBURGER MENU */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+      margin-left: 16px;
+    }
+
+    .hamburger-line {
+      width: 25px;
+      height: 3px;
+      background: #ffffff;
+      transition: 0.3s;
+    }
+
+    .hamburger.active .hamburger-line:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.active .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active .hamburger-line:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      background: rgba(8, 8, 20, 0.98);
+      backdrop-filter: blur(16px);
+      display: none;
+      flex-direction: column;
+      padding: 20px;
+      border-radius: 0 0 24px 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .mobile-menu .nav-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 10px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      color: #d4d4dd;
+      font-size: 0.9rem;
+    }
+
+    .mobile-menu.show {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      color: #d4d4dd;
+      text-decoration: none;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      transition: color 0.2s ease;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+      color: #ffffff;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero-left {
+        max-width: 500px;
+      }
+      .schedule-layout {
+        grid-template-columns: 1fr;
+      }
+      .footer-top {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner {
+        width: 95%;
+        margin: 0 auto;
+      }
+      .panel {
+        width: 95%;
+        margin: 0 auto;
+      }
+      .nav-center {
+        display: none;
+      }
+      .nav-tag {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+        background: #000000;
+        padding: 8px;
+        border-radius: 8px;
+        border: none;
+      }
+      .hamburger-line {
+        background: #8c52ff;
+      }
+      .speaker-grid {
+        grid-template-columns: 1fr;
+      }
+      .timeline-day {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .day-sections {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        text-align: center;
+      }
+      .chatbot-window {
+        width: 90%;
+        max-width: 320px;
+        bottom: 90px;
+        right: 10px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        padding-inline: 0;
+        width: 100vw;
+      }
+      .panel {
+        padding: 26px 20px 36px;
+        border-radius: 24px;
+        width: 100vw;
+        margin: 0;
+      }
+      #home {
+        grid-template-columns: 1fr;
+        padding-top: 72px;
+        text-align: center;
+      }
+      .stage-wrapper {
+        order: 3;
+        margin-top: 30px;
+      }
+      .hero-right-text {
+        margin-top: 24px;
+      }
+      .cta-panel {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .cta-button {
+        width: 100%;
+        text-align: center;
+      }
+      .stage-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-heading {
+        font-size: 2.1rem;
+        text-align: center;
+      }
+      .hero-subtitle {
+        font-size: 0.9rem;
+        text-align: center;
+      }
+      .event-meta {
+        font-size: 0.8rem;
+        justify-content: center;
+      }
+      .section-title {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+      .section-description {
+        font-size: 0.85rem;
+        text-align: center;
+      }
+      .speaker-grid {
+        justify-items: center;
+      }
+      .timeline-day {
+        align-items: center;
+        text-align: center;
+      }
+      .day-sections {
+        justify-items: center;
+      }
+      .section-card {
+        width: 100%;
+        max-width: 350px;
+      }
+      .footer {
+        gap: 20px;
+        text-align: center;
+      }
+      .footer-section {
+        align-items: center;
+      }
+      .footer-section h4 {
+        font-size: 0.9rem;
+      }
+      .footer-section p {
+        font-size: 0.8rem;
+      }
+      .footer-links {
+        justify-content: center;
+      }
+      .floating-help-bot {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        bottom: 15px;
+        right: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <!-- NAVBAR -->
+    <header class="nav">
+      <div class="nav-inner">
+        <div class="nav-left">
+          <div class="logo-slot">
+            <img src="Bytespath.png" alt="Bytespath Logo" />
+          </div>
+        </div>
+
+        <nav class="nav-center">
+          <a href="#" class="nav-link active">Home</a>
+          <a href="#speakers" class="nav-link">Speakers</a>
+          <a href="#schedule" class="nav-link">Schedule</a>
+          <a href="#footer" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="nav-right">
+          <div class="nav-tag">
+            <span class="nav-tag-dot"></span>
+            <span>Upcoming · 2026</span>
+          </div>
+          <a href="https://tally.so/r/EkzAMl" class="nav-cta">Register</a>
+          <button class="hamburger" onclick="toggleMenu()">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="#" class="nav-link active">Home</a>
+        <a href="#speakers" class="nav-link">Speakers</a>
+        <a href="#schedule" class="nav-link">Schedule</a>
+        <a href="#footer" class="nav-link">Contact</a>
+        <div class="nav-tag">
+          <span class="nav-tag-dot"></span>
+          <span>Upcoming · 2026</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN PANEL WITH ALL SECTIONS -->
+    <main class="panel">
+      <!-- HOME / IDEOLOGY -->
+      <section id="home" class="section">
+        <!-- hero content -->
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            Bytespath Modern Innovations
+            <span>2026</span>
+          </div>
+          <h1 class="hero-heading">
+            <span>Modern</span>
+            <span>Innovation</span>
+            <span class="hero-gradient-word">2026</span>
+            <span class="hero-gradient-word">Future of tech.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Modern Innovations is an annual virtual technology event hosted by Bytespath Global every
+            August. This event brings together professionals and leaders from diverse industries to explore
+            emerging technologies, understand Bytespath’s global footprint, and gain insights into our vision
+            for the future.
+            At Bytespath, we believe that knowledge grows when shared. As a trusted global partner to
+            clients across multiple sectors, we are committed to driving meaningful conversations and
+            fostering innovation.
+            We are pleased to invite you to Modern Innovations 2026 and welcome you to join us for an
+            inspiring and informative experience.
+          </p>
+
+          <div class="event-meta">
+            <div class="meta-row">
+              <span class="meta-label">When</span>
+              <span class="meta-pill">26 August 2026 · 10:45 am to 1:25pm</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Where</span>
+              <span class="meta-pill">Online Webinar</span>
+            </div>
+          </div>
+
+          <div class="hero-cards">
+            <div class="hero-card">
+              <div class="card-title">Product Launch</div>
+              <div class="card-desc">Introduction of Paykar</div>
+            </div>
+            <div class="hero-card">
+              <div class="card-title">AI Finance</div>
+              <div class="card-desc">Transforming global markets</div>
+            </div>
+            <div class="hero-card">
+              <div class="card-title">AI Operations</div>
+              <div class="card-desc">Optimizing supply chains</div>
+            </div>
+            <div class="hero-card">
+              <div class="card-title">Attendees</div>
+              <div class="card-desc">18+ Countries</div>
+            </div>
+            <div class="hero-card">
+              <div class="card-title">Access</div>
+              <div class="card-desc">Virtual</div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </section>
+
+      <!-- SPEAKERS -->
+      <section id="speakers" class="section">
+        <div class="section-header">
+          <div class="section-eyebrow">Speakers</div>
+          <h2 class="section-title">Voices shaping the next decade.</h2>
+          <p class="section-description">
+            We’re bringing leaders from AI, product, and infrastructure to share exactly how they’re
+            shipping at scale — and what they’re betting on next.
+          </p>
+        </div>
+
+        <div class="speaker-grid">
+          <article class="speaker-card">
+            <div class="speaker-photo">
+              
+              <img src="img3.jpeg" alt="Speaker 1" />
+            </div>
+            <div class="speaker-role">CO.FOUNDER & CEO</div>
+            <div class="speaker-name">Aniket Singh</div>
+            <p class="speaker-topic">
+              We will also explore Bytespath’s recent achievements, the strategic collaboration between
+              Bytespath and Sigiwent Digital, and the exciting joint product launches planned for 2026
+            </p>
+          </article>
+
+          <article class="speaker-card">
+            <div class="speaker-photo">
+              <img src="img1.jpeg" alt="Speaker 1" />
+            </div>
+            <div class="speaker-role">CO.FOUNDER & CFO</div>
+            <div class="speaker-name">Hitesh Nihalani</div>
+            <p class="speaker-topic">
+              We will delve into how AI is shaping the future of finance, influencing growth trajectories, and
+              transforming global stock markets. The session will also highlight Bytespath’s collaborations
+              within the finance sector and the impact these initiatives create for our clients worldwide.
+              Additionally, we will share projected financial growth insights and present case studies
+              showcasing how Bytespath has been at the forefront of innovation in the finance industry.
+              (Note: mention Paykar)
+            </p>
+          </article>
+
+          <article class="speaker-card">
+            <div class="speaker-photo">
+              <img src="img2.jpeg" alt="Speaker 1" />
+            </div>
+            <div class="speaker-role">CO.FOUNDER & COO</div>
+            <div class="speaker-name">Aditya Aher</div>
+            <p class="speaker-topic">
+              Learn how spatial computing, haptics, and AI-generated worlds come together
+              to create immersive products — and how to prototype these experiences with
+              small, focused teams.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- SCHEDULE -->
+      <section id="schedule" class="section">
+        <div class="section-header">
+          <div class="section-eyebrow">Schedule</div>
+          <h2 class="section-title">One day of deep-focus sessions.</h2>
+          <p class="section-description">
+            From keynotes to AI sessions, the program is designed so you can go deep on what
+            matters most to your team — without missing the big announcements.
+          </p>
+        </div>
+
+        <div class="schedule-layout">
+          <div class="timeline">
+            <div class="timeline-day">
+              <div class="day-label">Event Day</div>
+              <div class="day-sections">
+                <div class="section-card">
+                  <div class="day-detail-title">Keynote Session: Aniket Singh, Co-Founder &amp; Global CEO</div>
+                  <div class="day-detail-meta">
+                    10:45 AM – 11:40 AM<br />
+                    <span>Key Achievements of Bytespath, Product Launches of 2026 (Introduction of Paykar), CSR work from Bytespath and Sigiwent Group.</span>
+                  </div>
+                  <div class="day-detail-desc">
+                    Explore Bytespath’s recent achievements, the strategic collaboration between
+                    Bytespath and Sigiwent Digital, and the exciting joint product launches planned for 2026.
+                  </div>
+                </div>
+                <div class="section-card">
+                  <div class="day-detail-title">AI Finance: Hitesh Nihalani, Co-Founder &amp; Global CFO</div>
+                  <div class="day-detail-meta">
+                    11:45 AM – 12:15 PM<br />
+                    <span>How Finance organizations are adapting and how Bytespath is at the forefront to deliver the best.</span>
+                  </div>
+                  <div class="day-detail-desc">
+                    Delve into how AI is shaping the future of finance, influencing growth trajectories, and
+                    transforming global stock markets. The session will also highlight Bytespath’s collaborations
+                    within the finance sector and the impact these initiatives create for our clients worldwide.
+                    Additionally, we will share projected financial growth insights and present case studies
+                    showcasing how Bytespath has been at the forefront of innovation in the finance industry.
+                    (Note: mention Paykar)
+                  </div>
+                </div>
+                <div class="section-card">
+                  <div class="day-detail-title">AI Operations: Aditya Aher, Co-Founder &amp; Global COO</div>
+                  <div class="day-detail-meta">
+                    12:25 PM – 1:10 PM<br />
+                    <span>How AI is changing Manager roles across industry, case studies and Bytespath achievements.</span>
+                  </div>
+                  <div class="day-detail-desc">
+                    Discuss how AI has enhanced supply chain efficiency, driving accelerated growth
+                    across industries and improving project delivery outcomes. The session will also cover the
+                    evolving roles and responsibilities of future managers in an AI-enabled ecosystem.
+                    Furthermore, we will present case studies demonstrating Bytespath’s pivotal role in helping
+                    clients across various sectors optimize operations and achieve measurable results.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </section>
+
+      <!-- KNOW MORE SECTION -->
+      <section class="section">
+        <div class="section-header" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+          <h2 class="section-title">Know More About</h2>
+          <a href="https://bytespath.in/"><img src="Bytespath.png" alt="Bytespath Logo" style="width: 200px; height: auto; margin: 20px 0;"></a>
+          <a href="https://bytespath.in/" class="nav-cta">Know More</a>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer id="footer" class="footer">
+        <div class="footer-top">
+          <div class="footer-section">
+            <h4>Contact Us</h4>
+            <p>
+              <strong>Email:</strong> <a href="mailto:info@bytespath.com">info@bytespath.com</a><br>
+              <strong>BKC Office:</strong> Bandra Kurla Complex, Mumbai, India<br>
+              <strong>USA Office:</strong> 123 Tech Street, San Francisco, CA, USA
+            </p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Help & Support</h4>
+            <p>
+              <a href="#">FAQs</a><br>
+              <a href="#">Support Center</a><br>
+              <a href="#">Community Forum</a>
+            </p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <p>
+              <a href="#home">Home</a><br>
+              <a href="#speakers">Speakers</a><br>
+              <a href="#schedule">Schedule</a><br>
+              <a href="#footer">Contact</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>© 2025 Bytespath · NovaTech Innovation Summit.</div>
+          <div class="footer-links">
+            <a href="#home">Back to top</a>
+            <a href="#">Code of Conduct</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </footer>
+
+      <!-- Floating Help Bot Button -->
+      <button class="floating-help-bot" onclick="openChatbot()"><img src="bot.png" alt="Bot Icon" style="width: 60%; height: 60%; object-fit: cover;"></button>
+
+      <!-- Chatbot Modal -->
+      <div id="chatbot-modal" class="chatbot-modal">
+        <div class="chatbot-window">
+          <div class="chatbot-header">
+            <h3>Help Bot</h3>
+            <button class="chatbot-close" onclick="closeChatbot()">&times;</button>
+          </div>
+          <div class="chatbot-messages" id="chatbot-messages">
+            <div class="chatbot-message bot">Hello! How can I help you today?</div>
+          </div>
+          <div class="chatbot-questions">
+            <button class="chatbot-question" onclick="askQuestion('registration')">How do I register for the summit?</button>
+            <button class="chatbot-question" onclick="askQuestion('schedule')">What is the schedule?</button>
+            <button class="chatbot-question" onclick="askQuestion('venue')">Where is the venue?</button>
+            <button class="chatbot-question" onclick="askQuestion('speakers')">Who are the speakers?</button>
+            <button class="chatbot-question" onclick="askQuestion('pricing')">What are the ticket prices?</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('show');
+    }
+
+    function closeMenu() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('show');
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
+        closeMenu();
+      }
+    });
+
+    // Close menu when selecting an option
+    const menuLinks = document.querySelectorAll('.mobile-menu a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    function openChatbot() {
+      document.getElementById('chatbot-modal').style.display = 'block';
+    }
+
+    function closeChatbot() {
+      document.getElementById('chatbot-modal').style.display = 'none';
+    }
+
+    function askQuestion(question) {
+      const messages = document.getElementById('chatbot-messages');
+      const userMessage = document.createElement('div');
+      userMessage.className = 'chatbot-message user';
+      userMessage.textContent = getQuestionText(question);
+      messages.appendChild(userMessage);
+
+      const botMessage = document.createElement('div');
+      botMessage.className = 'chatbot-message bot';
+      botMessage.textContent = getBotResponse(question);
+      messages.appendChild(botMessage);
+
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    function getQuestionText(question) {
+      const questions = {
+        'registration': 'How do I register for the summit?',
+        'schedule': 'What is the schedule?',
+        'venue': 'Where is the venue?',
+        'speakers': 'Who are the speakers?',
+        'pricing': 'What are the ticket prices?'
+      };
+      return questions[question] || question;
+    }
+
+    function getBotResponse(question) {
+      const responses = {
+        'registration': 'To register, click on the "Register" button in the navbar or the "Register Now" button in the hero section. It will take you to our registration form.',
+        'schedule': 'The summit spans three days with keynotes, workshops, and networking sessions. Check the Schedule section for detailed timings.',
+        'venue': 'The event is held at NeoSphere Convention Center, 18 Marina Tech Drive, Singapore 039801. It\'s also available virtually.',
+        'speakers': 'We have industry leaders like Dr. Aisha Raman, Leo Martinez, and Mina Okafor speaking. Visit the Speakers section for more details.',
+        'pricing': 'Tickets start from $299 for early bird, $499 for regular, and $799 for VIP. Group discounts are available.'
+      };
+      return responses[question] || 'I\'m sorry, I don\'t have information on that topic. Please contact our support team.';
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('chatbot-modal').addEventListener('click', function(event) {
+      if (event.target === this) {
+        closeChatbot();
+      }
+    });
+  </script>
+</body>
+</html>
