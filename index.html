@@ -93,17 +93,18 @@
       display: block;
     }
 
+
     @media (max-width: 768px) {
       .logo-slot {
         width: 160px;
-        height: 23px;
+        height: 30px;
       }
     }
 
     @media (max-width: 640px) {
       .logo-slot {
-        width: 120px;
-        height: 17px;
+        width: 140px;
+        height: 30px;
       }
     }
 
@@ -188,6 +189,7 @@
       border-radius: inherit;
       background: linear-gradient(135deg, #8b5cf6, #e879f9, #22d3ee);
       -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       pointer-events: none;
@@ -240,6 +242,7 @@
     .hero-gradient-word {
       background: linear-gradient(120deg, #e0f2fe, #a855ff, #f97316);
       -webkit-background-clip: text;
+      background-clip: text;
       color: transparent;
     }
 
@@ -1175,6 +1178,7 @@
           <div class="hero-cards">
             <div class="hero-card">
               <div class="card-title">Product Launch</div>
+              <div class="card-desc">Stay Tuned.</div>
             </div>
             <div class="hero-card">
               <div class="card-title">AI Finance</div>
@@ -1382,12 +1386,16 @@
           <div class="chatbot-messages" id="chatbot-messages">
             <div class="chatbot-message bot">Hello! How can I help you today?</div>
           </div>
+
           <div class="chatbot-questions">
-            <button class="chatbot-question" onclick="askQuestion('registration')">How do I register for the summit?</button>
+            <button class="chatbot-question" onclick="askQuestion('registration')">How do I register for the event?</button>
             <button class="chatbot-question" onclick="askQuestion('schedule')">What is the schedule?</button>
-            <button class="chatbot-question" onclick="askQuestion('venue')">Where is the venue?</button>
+            <button class="chatbot-question" onclick="askQuestion('venue')">Is this an online or offline event?</button>
             <button class="chatbot-question" onclick="askQuestion('speakers')">Who are the speakers?</button>
-            <button class="chatbot-question" onclick="askQuestion('pricing')">What are the ticket prices?</button>
+            <button class="chatbot-question" onclick="askQuestion('pricing')">Is the event free?</button>
+            <button class="chatbot-question" onclick="askQuestion('company')">What is Bytespath?</button>
+            <button class="chatbot-question" onclick="askQuestion('topics')">What topics will be covered?</button>
+            <button class="chatbot-question" onclick="askQuestion('contact')">How can I contact Bytespath?</button>
           </div>
         </div>
       </div>
@@ -1458,15 +1466,19 @@
       return questions[question] || question;
     }
 
+
     function getBotResponse(question) {
       const responses = {
-        'registration': 'To register, click on the "Register" button in the navbar or the "Register Now" button in the hero section. It will take you to our registration form.',
-        'schedule': 'The summit spans three days with keynotes, workshops, and networking sessions. Check the Schedule section for detailed timings.',
-        'venue': 'The event is held at NeoSphere Convention Center, 18 Marina Tech Drive, Singapore 039801. It\'s also available virtually.',
-        'speakers': 'We have industry leaders like Dr. Aisha Raman, Leo Martinez, and Mina Okafor speaking. Visit the Speakers section for more details.',
-        'pricing': 'Tickets start from $299 for early bird, $499 for regular, and $799 for VIP. Group discounts are available.'
+        'registration': 'To register for Modern Innovations 2026, click on the "Register" button in the navbar. It will redirect you to our registration form at https://tally.so/r/EkzAMl',
+        'schedule': 'Modern Innovations 2026 is a one-day event on August 26, 2026. Schedule: 10:45-11:40 AM Keynote (Aniket Singh), 11:45 AM-12:15 PM AI Finance (Hitesh Nihalani), 12:25-1:10 PM AI Operations (Aditya Aher)',
+        'venue': 'Modern Innovations 2026 is an online webinar event. You can attend virtually from anywhere. No physical venue required.',
+        'speakers': 'Our speakers are: Aniket Singh (Co-Founder & CEO) - discussing Bytespath achievements and 2026 product launches, Hitesh Nihalani (Co-Founder & CFO) - covering AI in finance, and Aditya Aher (Co-Founder & COO) - focusing on AI operations and supply chain optimization.',
+        'pricing': 'Modern Innovations 2026 is a free virtual event hosted by Bytespath Global. Registration is complimentary but required to receive access details.',
+        'company': 'Bytespath is a global technology company with offices in Mumbai, India (BKC location) and Austin, Texas. We specialize in AI-driven solutions for finance and operations, serving clients across 18+ countries.',
+        'topics': 'The event covers AI Finance (transforming global markets and stock markets), AI Operations (optimizing supply chains and project delivery), and Bytespath\'s 2026 product launches and CSR initiatives.',
+        'contact': 'You can reach us at info@bytespath.in. Our Indian office is at Kautilya Bhawan-2, BKC, Mumbai, and our US office is at 5900 Balcones Drive, Austin, TX. Visit https://bytespath.in/ for more information.'
       };
-      return responses[question] || 'I\'m sorry, I don\'t have information on that topic. Please contact our support team.';
+      return responses[question] || 'I\'m sorry, I don\'t have information on that topic. Please contact our support team at info@bytespath.in or visit https://bytespath.in/';
     }
 
     // Close modal when clicking outside
